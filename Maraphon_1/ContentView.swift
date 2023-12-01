@@ -14,17 +14,15 @@ struct ContentView: View {
   var body: some View {
     TabView {
       ScrollView {
-        ScrollViewReader { reader in
-          ForEach(items, id: \.self) { item in
-            Text("\(item)")
-              .frame(maxWidth: .infinity)
-              .font(.title)
-              .foregroundStyle(.secondary)
-          }
+        ForEach(items, id: \.self) { item in
+          Text("\(item)")
+            .frame(maxWidth: .infinity)
+            .font(.title)
+            .foregroundStyle(.secondary)
         }
       }
-      .safeAreaInset(edge: .bottom, spacing: 50, content: {
-        Text("")
+      .safeAreaInset(edge: .bottom, spacing: height, content: {
+        Spacer().frame(height: 0)
       })
       .overlay(alignment: .bottom) {
         Color.red
